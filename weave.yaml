@@ -1,0 +1,12 @@
+apiVersion: "kubernetes.com/v1"
+kind: Network
+metadata:
+  name: weave-conf
+plugin: weave-net
+args: '[
+        {
+                "delegate": {
+			"hairpinMode": true,
+                }
+        }
+]'

@@ -1,0 +1,7 @@
+apiVersion: extensions/v1beta1
+kind: ThirdPartyResource
+metadata:
+  name: network.kubernetes.com
+description: "A specification of a Network obj in the kubernetes"
+versions:
+- name: v1

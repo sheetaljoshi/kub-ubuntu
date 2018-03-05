@@ -1,0 +1,7 @@
+apiVersion: kubeadm.k8s.io/v1alpha1
+kind: MasterConfiguration
+etcd:
+  extraArgs:
+    'listen-peer-urls': 'http://127.0.0.1:2380'
+networking:
+  podSubnet: 10.244.0.0/16

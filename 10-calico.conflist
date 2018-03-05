@@ -1,0 +1,29 @@
+{
+    "name": "k8s-pod-network",
+    "cniVersion": "0.3.0",
+    "plugins": [
+        {
+            "type": "calico",
+            "log_level": "info",
+            "datastore_type": "kubernetes",
+            "nodename": "master",
+            "ipam": {
+                "type": "host-local",
+                "subnet": "usePodCidr"
+            },
+            "policy": {
+                "type": "k8s",
+                "k8s_auth_token": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJjYW5hbC10b2tlbi01d2JnOCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50Lm5hbWUiOiJjYW5hbCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VydmljZS1hY2NvdW50LnVpZCI6IjhlZGFiNmMwLTIwYTYtMTFlOC1hMDY5LTAwMGMyOTZkNzQwNyIsInN1YiI6InN5c3RlbTpzZXJ2aWNlYWNjb3VudDprdWJlLXN5c3RlbTpjYW5hbCJ9.ktBWU_EZdqWT5lf46hrjKc4Rwa0dby2ABEUnCkc84lkeDQioINEGTAgpzdjyqEnQXNcmWrEobN6eZ2MbzQEb4pmPOedAT-IA2egJxATuGbjSxmfoKN6DAcn0UL0coU7JgLf9dMdYwa83L_HCKJKcqr7oGskRzCAIUGk6oCmAQV2XmHweqGopfTjB8Wj-XBL_swmDlePayjG_d4W028eJMARb-xDdCcSZfeSBnpsefqGQ1B-DasoZyajKsFvZfJwe_JRTjAVsXTBqFRr9I_ZsX7SSKSE3nSJ8eiMWOqd6t4xyZxC9Y4ebryemiToItsZjBGX4g0V44cSVNyewXUWHWQ"
+            },
+            "kubernetes": {
+                "k8s_api_root": "https://10.96.0.1:443",
+                "kubeconfig": "/etc/cni/net.d/calico-kubeconfig"
+            }
+        },
+        {
+            "type": "portmap",
+            "capabilities": {"portMappings": true},
+            "snat": true
+        }
+    ]
+}

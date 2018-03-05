@@ -1,0 +1,21 @@
+apiVersion: "kubernetes.com/v1"
+kind: Network
+metadata:
+  name: macvlan-conf
+plugin: macvlan
+args: '[
+        {
+            "master": "eth0",
+            "mode": "bridge",
+            "ipam": {
+                "type": "host-local",
+                        "subnet": "192.168.1.0/24",
+                        "rangeStart": "192.168.1.171",
+                        "rangeEnd": "192.168.1.188",
+                        "routes": [
+                                { "dst": "0.0.0.0/0" }
+                        ],
+                        "gateway": "192.168.1.1"
+                }
+        }
+]'

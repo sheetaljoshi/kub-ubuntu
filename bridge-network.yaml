@@ -1,0 +1,24 @@
+apiVersion: "kubernetes.com/v1"
+kind: Network
+metadata:
+  name: bridge-conf
+plugin: bridge
+args: '[
+    {
+      "type": "bridge",
+      "name": "lanbr",
+      "bridge": "lanbr",
+      "isGateway": true,
+      "ipMasq": true,
+      "ipam": {
+        "type": "host-local",
+        "subnet": "192.168.122.0/24",
+        "rangeStart": "192.168.122.200",
+        "rangeEnd": "192.168.122.216",
+        "routes": [
+          { "dst": "0.0.0.0/0" }
+        ],
+        "gateway": "192.168.122.1"
+     }
+    },
+]'
